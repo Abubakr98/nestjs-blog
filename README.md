@@ -1,4 +1,5 @@
 ## Installation
+
 ```bash
 cd api/
 ```
@@ -18,12 +19,12 @@ $ npm install
 ## Running the app
 
 ```bash
-# development
-$ npm run start
+# docker compose
+$ npm run compose
 
-# watch mode
-$ npm run start:dev
+# api
+$ npm run api
 
-# production mode
-$ npm run start:prod
+# ui
+$ npm run ui
 ```
