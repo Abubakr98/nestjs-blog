@@ -1,0 +1,16 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "ui": "npm -C ./ui run start",
+    "api": "npm -C ./api run start:dev",
+    "compose": "docker-compose up"
+  },
+  "author": "abubakr",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0"
+  }
+}

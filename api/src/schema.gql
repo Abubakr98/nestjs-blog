@@ -1,0 +1,55 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Comment {
+  id: String!
+  text: String!
+  user: User!
+  post: Post!
+}
+
+type User {
+  id: String!
+  name: String!
+  password: String!
+  email: String!
+  salt: String!
+  role: String!
+  posts: [Post!]
+  comments: [Comment!]
+}
+
+type Post {
+  id: String!
+  text: String!
+  user: User!
+  comments: [Comment!]
+}
+
+type Query {
+  post(id: String!): Post!
+  posts: [Post!]!
+  comment(id: String!): Comment!
+  comments: [Comment!]!
+}
+
+type Mutation {
+  deletePost(id: String!): Boolean!
+  updatePost(input: NewPostInput!): Post!
+  createPost(input: NewPostInput!): Post!
+  deleteComment(id: String!): Boolean!
+  updateComment(input: NewCommentInput!): Comment!
+  createComment(input: NewCommentInput!): Comment!
+}
+
+input NewPostInput {
+  id: String
+  text: String!
+}
+
+input NewCommentInput {
+  id: String
+  text: String!
+  postId: String
+}
