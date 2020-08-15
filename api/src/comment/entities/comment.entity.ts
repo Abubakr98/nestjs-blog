@@ -4,6 +4,8 @@ import {
   Column,
   BaseEntity,
   ManyToOne,
+  JoinTable,
+  JoinColumn,
 } from 'typeorm';
 import { ObjectType, Field } from '@nestjs/graphql';
 import { Post } from 'src/post/entities/post.entity';
@@ -27,6 +29,7 @@ export class Comment extends BaseEntity {
     { eager: false },
   )
   user: User;
+
 
   @Field(type => Post)
   @ManyToOne(

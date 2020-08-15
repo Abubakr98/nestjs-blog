@@ -12,5 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/jwt-decode": "^2.2.1"
   }
 }

@@ -7,13 +7,9 @@ import { NotFoundException } from '@nestjs/common';
 
 @EntityRepository(Post)
 export class PostRepository extends Repository<Post> {
-  async findOneById(id: string): Promise<Post> {
-    const query = this.createQueryBuilder('post').leftJoinAndSelect(
-      'post.user',
-      'user',
-    );
 
-    return await query.where('post.id = :id', { id }).getOne();
+  async findOneById(id: string): Promise<Post> {
+    return await this.findOne(id, { relations: ['user'] });
   }
   async getPosts(): Promise<Post[]> {
     const query = this.createQueryBuilder('post').leftJoinAndSelect(

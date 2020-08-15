@@ -19,7 +19,9 @@ $ npm install
 ## Running the app
 
 ```bash
-# docker compose
+# do the following commands in the root folder, by default it is /nest-blog
+
+# docker compose, before this command you should have docker running
 $ npm run compose
 
 # api
