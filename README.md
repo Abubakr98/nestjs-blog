@@ -2,18 +2,14 @@
 
 ```bash
 cd api/
-```
 
-```bash
 $ npm install
-```
+cd ..
 
-```bash
 cd ui/
-```
 
-```bash
 $ npm install
+cd ..
 ```
 
 ## Running the app
