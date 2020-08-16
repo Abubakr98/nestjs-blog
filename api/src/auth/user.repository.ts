@@ -34,7 +34,11 @@ export class UserRepository extends Repository<User> {
     authCredentialsDto: AuthCredentialsDto,
   ): Promise<string> {
     const { name, email, password } = authCredentialsDto;
-    const user = await this.findOne({ name, email });
+    // const user = await this.findOne({ name, email });
+    const user = await this.createQueryBuilder("post")
+      .where("LOWER(name) = LOWER(:name)", { name })
+      .andWhere(" LOWER(email) = LOWER(:email)", { email })
+      .getOne();
 
     if (user && (await user.validatePassword(password))) {
       return user.name;
