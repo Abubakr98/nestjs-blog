@@ -25,7 +25,6 @@ export class UserRepository extends Repository<User> {
       if (error.code === '23505') {
         throw new ConflictException('This email already exists');
       } else {
-        console.log('Error');
         throw new InternalServerErrorException();
       }
     }
