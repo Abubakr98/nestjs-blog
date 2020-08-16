@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import React from 'react';
 import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -55,7 +55,7 @@ const DialogActions = withStyles((theme: Theme) => ({
   },
 }))(MuiDialogActions);
 
-export const AuthModal: React.FC = (props) => {
+export const PostModal: React.FC = (props) => {
   const [open, setOpen] = React.useState(true);
 
   const handleClose = () => {
@@ -67,7 +67,7 @@ export const AuthModal: React.FC = (props) => {
     <div>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Authorization
+          Post
         </DialogTitle>
         <DialogContent dividers>{props.children}</DialogContent>
         <DialogActions>

@@ -9,6 +9,7 @@ import { useHistory } from 'react-router-dom';
 import Hidden from '@material-ui/core/Hidden';
 import styled from 'styled-components';
 import Menu from './Menu';
+import { restore } from '../utils/authStorage';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -49,6 +50,11 @@ export const Navbar: React.FunctionComponent = () => {
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
+  const logOut = () => {
+    restore();
+    setAnchorEl(null);
+    window.location.href = '/';
+  };
   const history = useHistory();
 
   return (
@@ -62,15 +68,14 @@ export const Navbar: React.FunctionComponent = () => {
           </Typography>
           <MyMenu>
             <Hidden xsDown>
-              {/* <NavLink to="/">
+              <NavLink onClick={logOut} to="/">
                 <Typography variant="h6" className={classes.title2}>
-                  Рецепты
+                  log out
                 </Typography>
-              </NavLink> */}
-
-              <NavLink to="/add">
+              </NavLink>
+              <NavLink to="/post">
                 <Typography variant="h6" className={classes.title2}>
-                  Создать пост
+                  Create post
                 </Typography>
               </NavLink>
             </Hidden>

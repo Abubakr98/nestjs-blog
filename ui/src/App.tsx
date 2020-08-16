@@ -7,6 +7,7 @@ import { SignUp } from './pages/auth/signup/SignUp';
 import { SignIn } from './pages/auth/signin/SignIn';
 import { isAuthenticated } from './utils/authStorage';
 import { Post } from './pages/post/Post';
+import { CreatePost } from './pages/post/CreatePost';
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
             {isAuthenticated() ? <Home /> : <Redirect to="/signin" />}
           </Route>
           <Route path="/posts/:id">{isAuthenticated() ? <Post /> : <Redirect to="/signin" />}</Route>
+          <Route path="/post">{isAuthenticated() ? <CreatePost /> : <Redirect to="/signin" />}</Route>
           <Route component={SignUp} path="/signup" />
           <Route component={SignIn} path="/signin" />
           {/* <Route component={RecipesPage} path="/" exact />

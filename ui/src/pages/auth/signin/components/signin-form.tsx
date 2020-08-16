@@ -7,6 +7,7 @@ import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 import { signin } from '../../../../utils/queries';
 import { MyPaper, Form } from './styles';
 import { storage } from '../../../../utils/authStorage';
+import { Link } from 'react-router-dom';
 const Alert = (props: AlertProps) => {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 };
@@ -83,6 +84,13 @@ export const SignInForm: React.FC = () => {
           <Button variant="contained" color="primary" style={{ margin: '0 auto', display: 'block' }} onClick={onCreate}>
             sign in
           </Button>
+        </div>
+        <div>
+          <Link to="/signup">
+            <Button variant="outlined" color="primary" style={{ margin: '0 auto', display: 'block' }}>
+              You do not have an account? create one.
+            </Button>
+          </Link>
         </div>
       </Form>
       <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>

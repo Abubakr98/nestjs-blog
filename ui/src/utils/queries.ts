@@ -42,9 +42,38 @@ export const POST = gql`
         name
       }
       comments{
+        id
         text
       }
     }
   }
 `;
 
+export const DELETE_POST = gql`
+mutation DelPost($id: String!) {
+    deletePost(id:$id)
+  }
+`;
+
+export const DELETE_COMMENT = gql`
+mutation DelCOMMENT($id: String!) {
+  deleteComment(id:$id)
+  }
+`;
+
+export const CREATE_POST = gql`
+mutation CreatePost($input:NewPostInput!){
+  createPost(input:$input){
+    id
+  }
+  }
+`;
+
+export const CREATE_COMMENT = gql`
+mutation CreateComment($input:NewCommentInput!){
+  createComment(input:$input){
+    id
+    text
+  }
+  }
+`;

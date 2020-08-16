@@ -3,6 +3,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { NavLink } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
+import { restore } from '../utils/authStorage';
 
 interface IMenuProps {
   open: boolean;
@@ -11,6 +12,11 @@ interface IMenuProps {
 }
 
 const MyMenu: React.FC<IMenuProps> = ({ open, anchorEl, handleClose }) => {
+  const logOut = () => {
+    restore();
+    handleClose();
+    window.location.href = '/';
+  };
   return (
     <Menu
       id="menu-appbar"
@@ -27,17 +33,15 @@ const MyMenu: React.FC<IMenuProps> = ({ open, anchorEl, handleClose }) => {
       open={open}
       onClose={handleClose}
     >
-      <MenuItem onClick={handleClose}>
-        <NavLink to="/">
-          <Typography variant="body1" color="textPrimary">
-            Рецепты
-          </Typography>
-        </NavLink>
+      <MenuItem onClick={logOut}>
+        <Typography variant="body1" color="textPrimary">
+          log out
+        </Typography>
       </MenuItem>
       <MenuItem onClick={handleClose}>
-        <NavLink to="/add">
+        <NavLink to="/post">
           <Typography variant="body1" color="textPrimary">
-            Создать рецепт
+            Create post
           </Typography>
         </NavLink>
       </MenuItem>
