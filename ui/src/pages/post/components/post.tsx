@@ -25,12 +25,15 @@ type PostProps = {
 
 export const PostText: React.FC<PostProps> = ({ post, children }) => {
   const { id, text, user } = post;
-  const [deletePost, { data }] = useMutation(DELETE_POST);
+  const [deletePost, { data, error: queryError }] = useMutation(DELETE_POST);
   const [open, setOpen] = React.useState(false);
 
   const onDelete = () => {
     deletePost({ variables: { id } });
   };
+  if (queryError) {
+    alert(JSON.stringify(queryError.message, null, 2));
+  }
   if (data) {
     window.location.href = '/';
   }

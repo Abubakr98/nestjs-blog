@@ -32,7 +32,7 @@ export const Comment: React.FC<CommentProps> = ({ comment }) => {
     deleteComment({ variables: { id } });
   };
   if (queryError) {
-    alert('Error :(');
+    alert(JSON.stringify(queryError.message, null, 2));
   }
   if (data) {
     window.location.reload();
