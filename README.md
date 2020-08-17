@@ -1,15 +1,18 @@
 ## Installation
 
+
 ```bash
-cd api/
+$ git clone https://github.com/Abubakr98/nestjs-blog.git
+
+$ cd nestjs-blog/api/
 
 $ npm install
 cd ..
 
-cd ui/
+$ cd ui/
 
 $ npm install
-cd ..
+$ cd ..
 ```
 
 ## Running the app
